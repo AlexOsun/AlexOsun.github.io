@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acertijo: Ladrones sospechosos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .solution-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .solution-input {
+      padding: 5px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Acertijo: Ladrones sospechosos</h1>
+  <p>Tres ladrones, Edgar, Darío y Guillermo son sospechosos de robar un banco. En el juicio se desvela que:</p>
+  <ul>
+    <li>O bien Guillermo es inocente, o bien Darío es culpable.</li>
+    <li>Si Darío es culpable, Guillermo es inocente.</li>
+    <li>Edgar y Guillermo nunca han atracado juntos, pero Edgar nunca actúa en solitario.</li>
+  </ul>
+  <p>Por tanto, si Darío es culpable, ¿también lo será Edgar?</p>
+  <p>¿Quiénes son los culpables?</p>
+
+  <div class="solution-container">
+    <input type="text" id="solution" class="solution-input" placeholder="Introduce tu solución">
+    <button onclick="verificarSolucion()">Comprobar</button>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    function verificarSolucion() {
+      var solutionInput = document.getElementById("solution");
+      var solution = solutionInput.value.toLowerCase();
+
+      if (solution === "edgar y dario") {
+        mostrarResultado("¡Respuesta correcta!", true);
+      } else {
+        mostrarResultado("Respuesta incorrecta. Inténtalo de nuevo.", false);
+      }
+    }
+
+    function mostrarResultado(mensaje, esCorrecta) {
+      var resultDiv = document.getElementById("result");
+      resultDiv.textContent = mensaje;
+
+      if (esCorrecta) {
+        resultDiv.classList.add("correct");
+        resultDiv.classList.remove("incorrect");
+      } else {
+        resultDiv.classList.add("incorrect");
+        resultDiv.classList.remove("correct");
+      }
+    }
+  </script>
+</body>
+</html> 
